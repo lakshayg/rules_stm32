@@ -278,8 +278,8 @@ def stm32f4_binary(name, srcs = [], deps = [], processor = "STM32F429xx", includ
         my_copts.append("-DUSE_HAL_DRIVERS")
 
     linker_path = ""
-    if PACKAGE_NAME:
-        linker_path = PACKAGE_NAME + "/"
+    if native.package_name():
+        linker_path = native.package_name() + "/"
 
     native.cc_binary(
         name = name,
